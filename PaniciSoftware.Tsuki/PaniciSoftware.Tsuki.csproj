@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PaniciSoftware.Tsuki</RootNamespace>
+    <AssemblyName>PaniciSoftware.Tsuki</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ChunkLexer.cs" />
+    <Compile Include="Common\ChunkParser.cs" />
+    <Compile Include="Common\Error.cs" />
+    <Compile Include="Common\ErrorList.cs" />
+    <Compile Include="Common\ErrorListExtensions.cs" />
+    <Compile Include="Common\IExpandable.cs" />
+    <Compile Include="Common\LuaRuntimeException.cs" />
+    <Compile Include="Common\NativeFunction.cs" />
+    <Compile Include="Common\NumericHelper.cs" />
+    <Compile Include="Common\PanicException.cs" />
+    <Compile Include="Common\TypeHelper.cs" />
+    <Compile Include="Compiler\AnonDefun.cs" />
+    <Compile Include="Compiler\Args.cs" />
+    <Compile Include="Compiler\Assign.cs" />
+    <Compile Include="Compiler\Block.cs" />
+    <Compile Include="Compiler\Chunk.cs" />
+    <Compile Include="Compiler\CompiledChunk.cs" />
+    <Compile Include="Compiler\Defun.cs" />
+    <Compile Include="Compiler\DoBlock.cs" />
+    <Compile Include="Compiler\Environment.cs" />
+    <Compile Include="Compiler\Exp.cs" />
+    <Compile Include="Compiler\FunctionCall.cs" />
+    <Compile Include="Compiler\Generator.cs" />
+    <Compile Include="Compiler\If.cs" />
+    <Compile Include="Compiler\Iter.cs" />
+    <Compile Include="Compiler\LocalVar.cs" />
+    <Compile Include="Compiler\LuaResult.cs" />
+    <Compile Include="Compiler\LValue.cs" />
+    <Compile Include="Compiler\Prefix.cs" />
+    <Compile Include="Compiler\Range.cs" />
+    <Compile Include="Compiler\Repeat.cs" />
+    <Compile Include="Compiler\Scope.cs" />
+    <Compile Include="Compiler\Statement.cs" />
+    <Compile Include="Compiler\TableDef.cs" />
+    <Compile Include="Compiler\Var.cs" />
+    <Compile Include="Compiler\While.cs" />
+    <Compile Include="LuaRuntime.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtime\BinderHelper.cs" />
+    <Compile Include="Runtime\Compare.cs" />
+    <Compile Include="Runtime\CompareOperationBinder.cs" />
+    <Compile Include="Runtime\CompileTimeRValueList.cs" />
+    <Compile Include="Runtime\ConcatenationBinder.cs" />
+    <Compile Include="Runtime\ConvertBinder.cs" />
+    <Compile Include="Runtime\EqualityOperationBinder.cs" />
+    <Compile Include="Runtime\ExpressionHelper.cs" />
+    <Compile Include="Runtime\GetIndexBinder.cs" />
+    <Compile Include="Runtime\GetMemberBinder.cs" />
+    <Compile Include="Runtime\InvokeBinder.cs" />
+    <Compile Include="Runtime\InvokeMemberBinder.cs" />
+    <Compile Include="Runtime\LengthBinder.cs" />
+    <Compile Include="Runtime\LessThanBinder.cs" />
+    <Compile Include="Runtime\LessThanOrEqualBinder.cs" />
+    <Compile Include="Runtime\LuaExportAttribute.cs" />
+    <Compile Include="Runtime\LuaExportInfo.cs" />
+    <Compile Include="Runtime\MetaTable.cs" />
+    <Compile Include="Runtime\NumericOperationBinder.cs" />
+    <Compile Include="Runtime\ReturnList.cs" />
+    <Compile Include="Runtime\ReturnListMetaObject.cs" />
+    <Compile Include="Runtime\RuntimeHelper.cs" />
+    <Compile Include="Runtime\RuntimeRValueList.cs" />
+    <Compile Include="Runtime\RValueList.cs" />
+    <Compile Include="Runtime\SetIndexBinder.cs" />
+    <Compile Include="Runtime\SetMemberBinder.cs" />
+    <Compile Include="Runtime\StaticMetaTables.cs" />
+    <Compile Include="Runtime\Table.cs" />
+    <Compile Include="Runtime\TableMetaObject.cs" />
+    <Compile Include="Runtime\Thread.cs" />
+    <Compile Include="Runtime\ThreadMetaObject.cs" />
+    <Compile Include="Runtime\UnaryOperationBinder.cs" />
+    <Compile Include="Runtime\UserData.cs" />
+    <Compile Include="Runtime\UserDataMetaObject.cs" />
+    <Compile Include="Runtime\VarArgs.cs" />
+    <Compile Include="StandardLib\BasicFunctions.cs" />
+    <Compile Include="StandardLib\BitwiseFunctions.cs" />
+    <Compile Include="StandardLib\CoroutineFunctions.cs" />
+    <Compile Include="StandardLib\MathFunctions.cs" />
+    <Compile Include="StandardLib\StatefulBasicFunctions.cs" />
+    <Compile Include="StandardLib\StringFunctions.cs" />
+    <Compile Include="StandardLib\SystemFunctions.cs" />
+    <Compile Include="StandardLib\TableFunctions.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>cscript /nologo "$(SolutionDir)bin\check-timestamp.vbs" "$(SolutionDir)etc\grammar\Chunk.g" "$(SolutionDir)PaniciSoftware.Tsuki\Common\ChunkParser.cs"
+
+if errorlevel 1 java -jar "$(SolutionDir)bin\antlr-3.4-complete.jar" -verbose -report -o "$(SolutionDir)PaniciSoftware.Tsuki\Common" "$(SolutionDir)etc\grammar\Chunk.g" -lib "$(SolutionDir)etc\grammar"
+</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

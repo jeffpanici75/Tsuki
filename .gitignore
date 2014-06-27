@@ -1,0 +1,12 @@
+**/bin
+**/obj
+*.user
+*.pdb
+*.suo
+*.pubxml
+ILMerge.exe
+.DS_Store
+
+PaniciSoftware.Tsuki/Common/ChunkLexer.cs
+PaniciSoftware.Tsuki/Common/ChunkParser.cs
+PaniciSoftware.Tsuki/Common/Chunk.tokens

@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaniciSoftware.Tsuki.Test", "PaniciSoftware.Tsuki.Test\PaniciSoftware.Tsuki.Test.csproj", "{4DC71D05-9573-4594-82F5-EEBFB8B54075}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grammar", "grammar", "{86111063-08D2-4E0B-931F-949B69754458}"
+	ProjectSection(SolutionItems) = preProject
+		etc\grammar\build-grammar.cmd = etc\grammar\build-grammar.cmd
+		etc\grammar\Chunk.g = etc\grammar\Chunk.g
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaniciSoftware.Tsuki", "PaniciSoftware.Tsuki\PaniciSoftware.Tsuki.csproj", "{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DC71D05-9573-4594-82F5-EEBFB8B54075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC71D05-9573-4594-82F5-EEBFB8B54075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC71D05-9573-4594-82F5-EEBFB8B54075}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4DC71D05-9573-4594-82F5-EEBFB8B54075}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4DC71D05-9573-4594-82F5-EEBFB8B54075}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4DC71D05-9573-4594-82F5-EEBFB8B54075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC71D05-9573-4594-82F5-EEBFB8B54075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC71D05-9573-4594-82F5-EEBFB8B54075}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4DC71D05-9573-4594-82F5-EEBFB8B54075}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4DC71D05-9573-4594-82F5-EEBFB8B54075}.Release|x86.ActiveCfg = Release|Any CPU
+		{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3CFE3768-04D4-470F-A5B4-B7CFE5FE5D70}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
