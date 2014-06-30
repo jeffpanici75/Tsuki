@@ -51,12 +51,6 @@ namespace PaniciSoftware.Tsuki.Runtime
             if (!target.HasValue)
                 return Defer(target);
 
-            var rules = target.Restrictions
-                .Merge(
-                    RuntimeHelper.MatchTypeOrNull(
-                        target,
-                        target.LimitType));
-
             var targetType = BinderHelper.GuessType(target.LimitType, target.Value);
 
             var o = Expression.Parameter(typeof (object));
@@ -69,18 +63,12 @@ namespace PaniciSoftware.Tsuki.Runtime
 
             Expression applyUnary;
             if (NumericHelper.IsNumeric(targetType))
-            {
                 applyUnary = Expression.MakeUnary(
                     Operation,
-                    Expression.Convert(
-                        o,
-                        target.LimitType),
+                    Expression.Convert(o, target.LimitType),
                     typeof (object));
-            }
             else
-            {
                 applyUnary = Expression.Constant(null, typeof (object));
-            }
 
             var h = Expression.Parameter(typeof (object));
 
@@ -116,7 +104,9 @@ namespace PaniciSoftware.Tsuki.Runtime
                 assignO,
                 topCond);
 
-            return new DynamicMetaObject(rootBlock, rules);
+            return new DynamicMetaObject(
+                rootBlock,
+                target.Restrictions.Merge(RuntimeHelper.MatchTypeOrNull(target, target.LimitType)));
         }
     }
 }

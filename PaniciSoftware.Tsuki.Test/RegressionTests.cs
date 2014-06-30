@@ -209,7 +209,6 @@ after 20 steps, root is 1 with error  9.5e-007, f=1.8e-007
             runtime.AssertedExecuteScript(scriptSource);
             Assert.IsNotEmpty(_fakeOutput.ToString());
             Console.WriteLine(_fakeOutput.ToString());
-            //Assert.AreEqual("0echo.lua1one2two3three4", _fakeOutput.ToString());
         }
     }
 }

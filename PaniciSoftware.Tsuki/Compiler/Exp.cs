@@ -26,6 +26,7 @@
 
 using System;
 using System.Linq.Expressions;
+using System.Reflection;
 using Antlr.Runtime.Tree;
 using PaniciSoftware.Tsuki.Common;
 using PaniciSoftware.Tsuki.Runtime;
@@ -301,15 +302,44 @@ namespace PaniciSoftware.Tsuki.Compiler
             if (TryPrimary(tree, out e))
                 return e;
 
+            var toBoolean = typeof (Convert).GetMethod(
+                "ToBoolean",
+                BindingFlags.Static | BindingFlags.Public,
+                null,
+                new[]
+                {
+                    typeof (object)
+                },
+                null);
+            var toInt32 = typeof (Convert).GetMethod(
+                "ToInt32",
+                BindingFlags.Static | BindingFlags.Public,
+                null,
+                new[]
+                {
+                    typeof (object)
+                },
+                null);
+
             switch (tree.Type)
             {
                 case ChunkParser.NotOp:
                 {
                     var operand = Wrap(Unary((CommonTree) tree.Children[0]));
-                    return Expression.Dynamic(
-                        UnaryOperationBinder.New(StaticTables, TokenToType(tree.Type)),
-                        typeof (bool),
-                        operand);
+                    var parameter = Expression.Parameter(typeof (object), "value");
+                    return Expression.Block(
+                        new[]
+                        {
+                            parameter
+                        },
+                        Expression.Assign(parameter, operand),
+                        Expression.IfThen(
+                            RuntimeHelper.NullCheck(parameter),
+                            Expression.Constant(true)),
+                        //Expression.IfThen(
+                        //    Expression.Equal(Expression.Call(toInt32, parameter), Expression.Constant(0, typeof(int))),
+                        //    Expression.Constant(false)),
+                        Expression.Not(Expression.Call(toBoolean, parameter)));
                 }
                 case ChunkParser.UnaryMinusOp:
                 {
