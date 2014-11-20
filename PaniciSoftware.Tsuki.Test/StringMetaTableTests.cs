@@ -40,7 +40,7 @@ namespace PaniciSoftware.Tsuki.Test
             runtime.StaticMetaTables.String.SetAdd(
                 (lhs, rhs) => string.Format("{0}{1}", lhs, rhs));
 
-            const string script = "local s = 'a'; local b = 'b' return a + b";
+            const string script = "local s = 'a'; local b = 'b' return s + b";
 
             var r = runtime.Compile(script);
 
@@ -49,6 +49,7 @@ namespace PaniciSoftware.Tsuki.Test
             r = r.Chunk.Execute();
 
             Assert.IsTrue(r.Success);
+            Assert.AreEqual("ab", r.Results);
         }
     }
 }
