@@ -90,5 +90,18 @@ namespace PaniciSoftware.Tsuki.Test
                 "b = 0; c = '';a = {b = 10, c = 20, d = 30, e = 40, f = 50, g = 60, h = 70, i = 80, j = 90}\r\nfor k, v in pairs(a) do b = b + v; c = c .. ' ' .. k end");
             Assert.AreEqual(450M, runtime["b"]);
         }
+
+        [Test]
+        public void TablesMetaTableInvoked()
+        {
+            var runtime = new LuaRuntime();
+            runtime.Environment.ImportBasicFunctions();
+            runtime.Environment.ImportStatefulBasicFunctions(runtime, runtime.StaticMetaTables);
+
+            var results = runtime.AssertedExecuteScript(
+                "local m = { add = function (args) return 0; end };local x = {2, 4, 6, 8, 10}; local y = {10, 8, 6, 4, 2}; setmetatable(x, m); setmetatable(y, m); return x + y;");
+
+            Assert.AreEqual(0M, results);            
+        }
     }
 }
